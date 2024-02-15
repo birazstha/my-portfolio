@@ -24,7 +24,7 @@ jobs:
         run: composer install --no-dev --optimize-autoloader
 
       - name: Generate Laravel Mix
-        run: npm install && npm run prod
+        run: npm install
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
