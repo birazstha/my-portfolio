@@ -42,7 +42,7 @@ jobs:
 
       - name: Wait for PostgreSQL to be ready
         run: |
-          until nc -z -v -w30 localhost 5432
+          until nc -z -v -w30 http://c3.my-control-panel.com 5432
           do
             echo "Waiting for PostgreSQL..."
             # wait for 5 seconds before checking again
