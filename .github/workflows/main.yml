@@ -10,44 +10,47 @@ jobs:
     name: Deploy Laravel App
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: biraj_portfolio_admin
+          POSTGRES_PASSWORD: H;x(FY[{5^Rw
+          POSTGRES_DB: biraj_db_portfolio
+          POSTGRES_PORT: 5432
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      # Install dependencies, including FTP deployment tool
-      - name: Install PHP and FTP Deploy Tool
+      - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
+
+      - name: Install Composer Dependencies
+        run: composer install --no-dev --optimize-autoloader
+
+      - name: Copy .env File
+        run: cp .env.example .env
+
+      - name: Generate Application Key
+        run: php artisan key:generate
+
+      - name: Wait for PostgreSQL to be ready
         run: |
-          sudo apt-get install -y lftp
+          until nc -z -v -w30 localhost 5432
+          do
+            echo "Waiting for PostgreSQL..."
+            # wait for 5 seconds before checking again
+            sleep 5
+          done
 
-      # Set up environment variables from .env file
-      - name: Set up environment variables
-        run: |
-          echo "APP_ENV=production" >> $GITHUB_ENV
-          echo "APP_KEY=" >> $GITHUB_ENV
-          echo "APP_DEBUG=false" >> $GITHUB_ENV
-          # Add more variables as needed
+      - name: Run Migrations
+        run: php artisan migrate --force
 
-          # Read database credentials from .env file
-          export $(grep -v '^#' .env | xargs -d '\n')
-
-          # Set database credentials as environment variables
-          echo "DB_CONNECTION=${DB_CONNECTION}" >> $GITHUB_ENV
-          echo "DB_HOST=localhost" >> $GITHUB_ENV
-          echo "DB_PORT=5432" >> $GITHUB_ENV
-          echo "DB_DATABASE=biraj_db_portfolio" >> $GITHUB_ENV
-          echo "DB_USERNAME=biraj_portfolio_admin" >> $GITHUB_ENV
-          echo "DB_PASSWORD=Biraj@224973" >> $GITHUB_ENV
-
-      # Run database migrations and seeding
-      - name: Run Migrations and Seed Database
-        run: |
-          echo "Running migrations..."
-          php artisan migrate --force
-          echo "Migrations completed."
-
-          echo "Seeding database..."
-          php artisan db:seed --force
-          echo "Seeding completed."
+      - name: Seed Database
+        run: php artisan db:seed --force
