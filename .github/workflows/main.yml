@@ -21,9 +21,9 @@ jobs:
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist --ignore-platform-reqs
     - name: Generate key
-      run: php artisan key:generate  # Ensure the APP_KEY is properly generated
+      run: php artisan key:generate  
     - name: Run Database Migrations
-      run: php artisan migrate:fresh --seed  # Ensure the database connection is properly configured
+      run: php artisan migrate:fresh --seed  
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
    
