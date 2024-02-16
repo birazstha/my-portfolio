@@ -60,4 +60,4 @@ jobs:
         with:
           server: ftp.rajphotopasal.com
           username: portfolio@birajshrestha.com.np
-          password: ${{ secrets.FTP_PASSWORD }} # assuming you have stored the FTP password as a secret
+          password: ${{ secrets.FTP_PASSWORD }}
