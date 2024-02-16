@@ -54,3 +54,14 @@ jobs:
 
       - name: Seed Database
         run: php artisan db:seed --force
+
+        - name: 🚚 Get Latest Code
+        uses: actions/checkout@v3
+     
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ftp.rajphotopasal.com
+          username: portfolio@birajshrestha.com.np
+          password: Biraj@224973
+
