@@ -21,10 +21,14 @@ jobs:
           extensions: mbstring, zip, dom
 
       - name: Install Composer Dependencies
-        run: composer install --no-dev --optimize-autoloader
+        run: |
+          cd my-portfolio  # Assuming your Laravel project is in a directory named 'my-portfolio'
+          composer install --no-dev --optimize-autoloader
 
       - name: Generate Laravel Mix
-        run: npm install
+        run: |
+          cd my-portfolio
+          npm install
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -35,18 +39,12 @@ jobs:
 
       - name: Boot Laravel application
         run: |
+          cd my-portfolio
           php artisan key:generate
           php artisan --version
 
       - name: Execute PHPUnit tests
-        env:
-          DB_HOST: 127.0.0.1
-          DB_CONNECTION: pgsql
-          DB_DATABASE: biraj_db_portfolio
-          DB_PORT: 5432
-          DB_USERNAME: biraj_portfolio_admin
-          DB_PASSWORD: Biraj@224973
         run: |
+          cd my-portfolio
           php artisan migrate:fresh --seed
-          php artisan key:generate
-
+          php artisan key:generate  # Ensure the application key is set after seeding
