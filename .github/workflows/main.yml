@@ -26,12 +26,12 @@ jobs:
       - name: Generate Laravel Mix
         run: npm install
 
-      - name: Run Laravel Migrations
-        run: php artisan migrate --force
-
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ftp.rajphotopasal.com
           username: portfolio@birajshrestha.com.np
           password: Biraj@224973
+
+      - name: Run Laravel Migrations
+        run: php artisan migrate --force
