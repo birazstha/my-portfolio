@@ -1,47 +1,28 @@
-name: Deploy Laravel App
-
+name: Build and Deploy
 on:
-  push:
-    branches:
-      - master
+    push:
+        branches:
+            -   master
 
 jobs:
-  deploy:
-    name: Deploy Laravel App
-    runs-on: ubuntu-latest
-
-  
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.2'
-
-      - name: Install Composer Dependencies
-        run: composer install --no-dev --optimize-autoloader
-
-      - name: Copy .env File
-        run: cp .env.example .env
-
-      - name: Generate Application Key
-        run: php artisan key:generate
-
-     
-      - name: Run Migrations
-        run: php artisan migrate --force
-
-      - name: Seed Database
-        run: php artisan db:seed --force
-
-      - name: 🚚 Get Latest Code
-        uses: actions/checkout@v3
-
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ftp.rajphotopasal.com
-          username: portfolio@birajshrestha.com.np
-          password: ${{ secrets.FTP_PASSWORD }} # assuming you have stored the FTP password as a secret
+    build:
+        name: Build and Deploy
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout Repository
+                uses: actions/checkout@master
+            -   name: Setup Enviroment
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: '8.2'
+            -   name: Speed up the packages installation process
+                run: composer global require hirak/prestissimo
+            -   name: Install Packages
+                run: composer install --no-dev
+            -   name: Deploy to Server
+                uses: kosratdev/laravel-deploy-migrate@laravel
+                with:
+                    user: biraj_portfolio_user
+                    host: localhost
+                    port: 5432
+               
