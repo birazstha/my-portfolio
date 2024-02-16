@@ -10,18 +10,7 @@ jobs:
     name: Deploy Laravel App
     runs-on: ubuntu-latest
 
-    services:
-      postgres:
-        image: postgres:latest
-        env:
-          POSTGRES_USER: biraj_portfolio_ddduser
-          POSTGRES_PASSWORD: Biraj@2123
-          POSTGRES_DB: biraj_db_portfoliodd
-          POSTGRES_PORT: 5432
-        ports:
-          - 5432:5432
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-
+  
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -40,15 +29,7 @@ jobs:
       - name: Generate Application Key
         run: php artisan key:generate
 
-      - name: Wait for PostgreSQL to be ready
-        run: |
-          until nc -z -v -w30 localhost 5432
-          do
-            echo "Waiting for PostgreSQL..."
-            # wait for 5 seconds before checking again
-            sleep 5
-          done
-
+     
       - name: Run Migrations
         run: php artisan migrate --force
 
