@@ -22,7 +22,7 @@ jobs:
 
       - name: Install Composer Dependencies
         run: |
-          cd home/biraj/my-sites/portfolio  
+          cd ${{ github.workspace }}/portfolio
           composer install --no-dev --optimize-autoloader
 
       - name: Generate Laravel Mix
