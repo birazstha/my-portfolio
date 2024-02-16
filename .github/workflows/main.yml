@@ -17,6 +17,7 @@ jobs:
           POSTGRES_USER: biraj_portfolio_admin
           POSTGRES_PASSWORD: H;x(FY[{5^Rw
           POSTGRES_DB: biraj_db_portfolio
+          POSTGRES_PORT: 5432
         ports:
           - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
