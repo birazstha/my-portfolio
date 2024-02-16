@@ -45,9 +45,9 @@ jobs:
       - name: Run Migrations and Seed Database
         run: |
           echo "Running migrations..."
-          php artisan migrate --force
+          php artisan migrate
           echo "Migrations completed."
 
           echo "Seeding database..."
-          php artisan db:seed --force
+          php artisan db:seed
           echo "Seeding completed."
