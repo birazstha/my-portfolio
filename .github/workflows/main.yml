@@ -33,8 +33,12 @@ jobs:
           username: portfolio@birajshrestha.com.np
           password: Biraj@224973
 
-      - name: Check Laravel Environment
-        run: php artisan env
-        
-      - name: Run Laravel Migrations
-        run: php artisan migrate --force
+      - name: Execute PHPUnit tests
+      env:
+        DB_CONNECTION: pgsql
+        DB_DATABASE: biraj_db_portfolio
+        DB_PORT: 5432
+        DB_USERNAME: biraj_portfolio_admin
+        DB_PASSWORD: Biraj@224973
+      run: |
+        php artisan migrate:fresh --seed
