@@ -44,11 +44,10 @@ jobs:
       # Connect to cPanel FTP server and deploy files
       - name: Deploy Files via FTP
         run: |
-          lftp -e "mirror -R --ignore-time --parallel=10 ./public_html /path/to/your/ftp/public_html; quit" -u $FTP_USERNAME,$FTP_PASSWORD ftp.yourdomain.com
+          lftp -e "mirror -R --ignore-time --parallel=10 ./public_html /path/to/your/ftp/public_html; quit" -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ftp.yourdomain.com
 
       # Run database migrations and seeding
       - name: Run Migrations and Seed Database
         run: |
           php artisan migrate --force
           php artisan db:seed --force
-
