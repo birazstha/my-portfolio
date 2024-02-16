@@ -14,10 +14,10 @@ jobs:
       postgres:
         image: postgres:latest
         env:
-         HUEHUE_USER: biraj_portfolio_user
-         HUEHUE_PASSWORD: Biraj@224973
-         HUEHUE_DB: biraj_db_portfolio
-         HUEHUE_PORT: 5432
+          POSTGRES_USER: SDFASD
+          POSTGRES_PASSWORD: Biraj@ASDF
+          POSTGRES_DB: ASDF
+          POSTGRES_PORT: 5432
         ports:
           - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
