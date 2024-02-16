@@ -14,8 +14,8 @@ jobs:
       postgres:
         image: postgres:latest
         env:
-          POSTGRES_USER: biraj_portfolio_admin
-          POSTGRES_PASSWORD: H;x(FY[{5^Rw
+          POSTGRES_USER: biraj_portfolio_user
+          POSTGRES_PASSWORD: Biraj@224973
           POSTGRES_DB: biraj_db_portfolio
           POSTGRES_PORT: 5432
         ports:
