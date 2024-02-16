@@ -15,7 +15,7 @@ jobs:
         image: postgres:latest
         env:
           POSTGRES_USER: biraj_portfolio_user
-          POSTGRES_PASSWORD: Biraj@224973
+          POSTGRES_PASSWORD: 
           POSTGRES_DB: biraj_db_portfolio
           POSTGRES_PORT: 5432
         ports:
