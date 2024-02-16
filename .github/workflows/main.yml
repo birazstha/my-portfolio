@@ -22,7 +22,7 @@ jobs:
 
       - name: Install Composer Dependencies
         run: |
-          cd portfolio  
+          cd home/biraj/my-sites/portfolio  
           composer install --no-dev --optimize-autoloader
 
       - name: Generate Laravel Mix
