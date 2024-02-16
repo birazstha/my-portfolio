@@ -19,10 +19,7 @@ jobs:
                 run: composer global require hirak/prestissimo
             -   name: Install Packages
                 run: composer install --no-dev
-            -   name: Deploy to Server
-                uses: kosratdev/laravel-deploy-migrate@laravel
-                with:
-                    user: biraj_portfolio_user
-                    host: localhost
-                    port: 5432
+            -   name: Laravel Deploy and Migrate DB
+                uses: kosratdev/larave-deploy-migrate@v2.0.2
+            
                
