@@ -41,7 +41,7 @@ jobs:
 
       - name: Execute PHPUnit tests
         env:
-          DB_HOST: 127.0.0.12
+          DB_HOST: localhost
           DB_CONNECTION: pgsql
           DB_DATABASE: biraj_db_portfolio
           DB_PORT: 5432
