@@ -18,7 +18,7 @@ jobs:
             -   name: Speed up the packages installation process
                 run: composer global require hirak/prestissimo
             -   name: Install Packages
-                run: composer install --no-dev
+                run: composer install --ignore-platform-reqs
             -   name: Laravel Deploy and Migrate DB
                 uses: kosratdev/larave-deploy-migrate@v2.0.2
             
