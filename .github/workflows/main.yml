@@ -41,9 +41,13 @@ jobs:
           echo "DB_USERNAME=biraj_portfolio_admin" >> $GITHUB_ENV
           echo "DB_PASSWORD=Biraj@224973" >> $GITHUB_ENV
 
-   
       # Run database migrations and seeding
       - name: Run Migrations and Seed Database
         run: |
+          echo "Running migrations..."
           php artisan migrate --force
+          echo "Migrations completed."
+
+          echo "Seeding database..."
           php artisan db:seed --force
+          echo "Seeding completed."
