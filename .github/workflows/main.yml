@@ -10,6 +10,18 @@ jobs:
     name: Deploy Laravel App
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: rajphoto
+          POSTGRES_PASSWORD: XB3UK3KL01kp
+          POSTGRES_DB: rajphoto
+          POSTGRES_PORT: 5432
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -30,7 +42,7 @@ jobs:
 
       - name: Wait for PostgreSQL to be ready
         run: |
-          until nc -z -v -w30 localhost 5432
+          until nc -z -v -w30 65.0.64.69 5432
           do
             echo "Waiting for PostgreSQL..."
             # wait for 5 seconds before checking again
@@ -38,10 +50,7 @@ jobs:
           done
 
       - name: Run Migrations
-        run: php artisan migrate --force
-
-      - name: Seed Database
-        run: php artisan db:seed --force
+        run: php artisan migrate
 
       - name: 🚚 Get Latest Code
         uses: actions/checkout@v3
