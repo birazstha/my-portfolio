@@ -21,7 +21,7 @@ jobs:
     - name: Copy .env
       run: |
         cp .env.example .env
-        sed -i "s/DB_HOST=.*/DB_HOST=c3.my-control-panel.com/" .env
+        sed -i "s/DB_HOST=.*/DB_HOST=birj@c3.my-control-panel.com/" .env
         sed -i "s/DB_PORT=.*/DB_PORT=5432/" .env
         sed -i "s/DB_DATABASE=.*/DB_DATABASE=biraj_db_portfolio/" .env
         sed -i "s/DB_USERNAME=.*/DB_USERNAME=biraj_portfolio_admin/" .env
