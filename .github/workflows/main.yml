@@ -14,10 +14,10 @@ jobs:
       postgres:
         image: postgres:latest
         env:
-          POSTGRES_USER: biraj_portfolio_user
-          POSTGRES_PASSWORD: Biraj@224973
-          POSTGRES_DB: biraj_db_portfolio
-          POSTGRES_PORT: 5432
+          jal;kdsfj_USER: biraj_portfolio_user
+          jal;kdsfj_PASSWORD: Biraj@224973
+          jal;kdsfj_DB: biraj_db_portfolio
+          jal;kdsfj_PORT: 5432
         ports:
           - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
