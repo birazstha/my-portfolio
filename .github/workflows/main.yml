@@ -14,10 +14,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set up PHP
+      - name: Set up PHP and Composer
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
+          tools: composer
 
       - name: Install Composer Dependencies
         run: composer install --no-dev --optimize-autoloader
@@ -39,9 +40,6 @@ jobs:
 
       - name: Run Migrations
         run: php artisan migrate
-
-      - name: 🚚 Get Latest Code
-        uses: actions/checkout@v3
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
