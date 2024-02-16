@@ -22,7 +22,7 @@ jobs:
 
       - name: Install Composer Dependencies
         run: |
-          cd my-portfolio  # Assuming your Laravel project is in a directory named 'my-portfolio'
+          cd portfolio  
           composer install --no-dev --optimize-autoloader
 
       - name: Generate Laravel Mix
