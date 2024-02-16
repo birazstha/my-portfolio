@@ -1,23 +1,23 @@
-name: Build and Deploy
+name: Deploy Laravel Project on Push
+
 on:
-    push:
-        branches:
-            -   master
+  push:
+    branches:
+      - master
 
 jobs:
-    build:
-        name: Build and Deploy
-        runs-on: ubuntu-latest
-        steps:
-            -   name: Checkout Repository
-                uses: actions/checkout@master
-            -   name: Setup Enviroment
-                uses: shivammathur/setup-php@v2
-                with:
-                    php-version: '8.2'
-            -   name: Install Packages
-                run: composer install --ignore-platform-reqs
-            -   name: Laravel Deploy and Migrate DB
-                uses: kosratdev/larave-deploy-migrate@v2.0.2
-            
-               
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: 🚚 Get Latest Code
+        uses: actions/checkout@v3
+     
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ftp.rajphotopasal.com
+          username: portfolio@birajshrestha.com.np
+          password: Biraj@224973
+
