@@ -1,40 +1,37 @@
-name: Laravel
+name: Deploy Laravel App
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
-  laravel-tests:
+  deploy:
+    name: Deploy Laravel App
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    - name: Set up PHP
-      uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
-      with:
-        php-version: '8.2'
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
 
-    - name: Copy .env
-      run: |
-        cp .env.example .env
-        sed -i "s/DB_HOST=.*/DB_HOST=biraj@c3.my-control-panel.com/" .env
-        sed -i "s/DB_PORT=.*/DB_PORT=5432/" .env
-        sed -i "s/DB_DATABASE=.*/DB_DATABASE=biraj_db_portfolio/" .env
-        sed -i "s/DB_USERNAME=.*/DB_USERNAME=biraj_portfolio_admin/" .env
-        sed -i "s/DB_PASSWORD=.*/DB_PASSWORD=UOSQUY}$z&sW/" .env
+      - name: Install Composer Dependencies
+        run: composer install --no-dev --optimize-autoloader
 
-    - name: Install Dependencies
-      run: composer install --ignore-platform-reqs
+      - name: Copy .env File
+        run: cp .env.example .env
 
-    - name: Generate key
-      run: php artisan key:generate  
+      - name: Generate Application Key
+        run: php artisan key:generate
 
-    - name: Run Database Migrations
-      run: php artisan migrate:fresh --seed  
+      - name: Run Migrations
+        run: php artisan migrate --force
 
-    - name: Directory Permissions
-      run: chmod -R 777 storage bootstrap/cache
+      - name: Seed Database
+        run: php artisan db:seed --force
+
+      # Add additional steps here for deploying your Laravel app as needed
