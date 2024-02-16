@@ -13,11 +13,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install SSH key
+      - name: Setup SSH key
         uses: webfactory/ssh-agent@v0.5.3
         with:
-          ssh-private-key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCXfihPTkAd6gdE1US0Z8TElncQFYcukFSTw8BE2upRGa5dktQxVRCIE8tTbkE6Qj63c+G2gqHGpKwFnstHfOz+mZTuOw+aGwY5O9+IsPQWuJyL5ZM1D5kS+KPmICQg6QJImaRMVBrrKj6rShODBinD4JdGyvTypJXlQyZUSOBbQ6xyRUT6S+VTgRuQlkYdIT+QKOaQ3HnVyVkftju8c+K+LvcY/MdNAi/+EAemZht/OUkcplI+wlc1OyfdJT9OUMsPp0yL517DBuahh8fJOVvGHzuIL5wRaUvcoTi1i7WLrQ2F/9HGIxOn3D2T+VBlEpvyULETH0eAsH+ixR+cDek7 rajphoto@c3.my-control-panel.com
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Run PHP Artisan migrate
         run: |
-          ssh biraj@hc3.my-control-panel.com/ "cd /home/my-sites/portfolio && php artisan migrate"
+          ssh biraj@hc3.my-control-panel.com "cd /home/my-sites/portfolio && php artisan migrate"
