@@ -26,6 +26,9 @@ jobs:
       - name: Generate Laravel Mix
         run: npm install
 
+      - name: Run Laravel Migrations
+        run: php artisan migrate --force
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
