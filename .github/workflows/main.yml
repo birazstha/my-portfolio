@@ -14,8 +14,8 @@ jobs:
       postgres:
         image: postgres:latest
         env:
-          POSTGRES_USER: biraj_portfolio_admin
-          POSTGRES_PASSWORD: H;x(FY[{5^Rw
+          POSTGRES_USER: biraj_portfolio_user
+          POSTGRES_PASSWORD: Biraj@224973
           POSTGRES_DB: biraj_db_portfolio
           POSTGRES_PORT: 5432
         ports:
@@ -55,13 +55,12 @@ jobs:
       - name: Seed Database
         run: php artisan db:seed --force
 
-        - name: 🚚 Get Latest Code
+      - name: 🚚 Get Latest Code
         uses: actions/checkout@v3
-     
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ftp.rajphotopasal.com
           username: portfolio@birajshrestha.com.np
-          password: Biraj@224973
-
+          password: ${{ secrets.FTP_PASSWORD }} # assuming you have stored the FTP password as a secret
