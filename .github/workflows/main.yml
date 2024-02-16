@@ -44,7 +44,7 @@ jobs:
       # Connect to cPanel FTP server and deploy files
       - name: Deploy Files via FTP
         run: |
-          lftp -e "mirror -R --ignore-time --parallel=10 ./public_html /path/to/your/ftp/public_html; quit" -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ftp.yourdomain.com
+          lftp -e "mirror -R --ignore-time --parallel=10 ./public_html /path/to/your/ftp/public_html; quit" -u portfolio@birajshrestha.com.np,Biraj@224973 ftp.rajphotopasal.com
 
       # Run database migrations and seeding
       - name: Run Migrations and Seed Database
