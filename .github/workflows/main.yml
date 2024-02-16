@@ -10,15 +10,26 @@ jobs:
     name: Deploy Laravel App
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: biraj_portfolio_admin
+          POSTGRES_PASSWORD: H;x(FY[{5^Rw
+          POSTGRES_DB: biraj_db_portfolio
+          POSTGRES_PORT: 5432
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set up PHP and Composer
+      - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
-          tools: composer
 
       - name: Install Composer Dependencies
         run: composer install --no-dev --optimize-autoloader
@@ -31,7 +42,7 @@ jobs:
 
       - name: Wait for PostgreSQL to be ready
         run: |
-          until nc -z -v -w30 65.0.64.69 5432
+          until nc -z -v -w30 localhost 5432
           do
             echo "Waiting for PostgreSQL..."
             # wait for 5 seconds before checking again
@@ -39,11 +50,18 @@ jobs:
           done
 
       - name: Run Migrations
-        run: php artisan migrate
+        run: php artisan migrate --force
 
+      - name: Seed Database
+        run: php artisan db:seed --force
+
+        - name: 🚚 Get Latest Code
+        uses: actions/checkout@v3
+     
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ftp.rajphotopasal.com
           username: portfolio@birajshrestha.com.np
-          password: ${{ secrets.FTP_PASSWORD }}
+          password: Biraj@224973
+
