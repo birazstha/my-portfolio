@@ -21,11 +21,11 @@ jobs:
     - name: Copy .env
       run: |
         cp .env.example .env
-        sed -i "s/DB_HOST=.*/DB_HOST=127.0.0.1/" .env
+        sed -i "s/DB_HOST=.*/DB_HOST=127.0.0.2/" .env
         sed -i "s/DB_PORT=.*/DB_PORT=5432/" .env
         sed -i "s/DB_DATABASE=.*/DB_DATABASE=biraj_db_portfolio/" .env
         sed -i "s/DB_USERNAME=.*/DB_USERNAME=biraj_portfolio_admin/" .env
-        sed -i "s/DB_PASSWORD=.*/DB_PASSWORD=Biraj@224973/" .env
+        sed -i "s/DB_PASSWORD=.*/DB_PASSWORD=UOSQUY}$z&sW/" .env
 
     - name: Install Dependencies
       run: composer install --ignore-platform-reqs
