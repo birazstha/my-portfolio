@@ -1,50 +1,23 @@
-name: Deploy Laravel Project on Push
+name: Laravel Migration
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
-  web-deploy:
-    name: Deploy
+  migrate:
     runs-on: ubuntu-latest
+
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      - name: 🚚 Get Latest Code
-        uses: actions/checkout@v3
-     
-      - name: Install PHP and Composer
-        uses: shivammathur/setup-php@v2
+      - name: Install SSH key
+        uses: webfactory/ssh-agent@v0.5.3
         with:
-          php-version: '8.2'
-          extensions: mbstring, zip, dom
+          ssh-private-key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCXfihPTkAd6gdE1US0Z8TElncQFYcukFSTw8BE2upRGa5dktQxVRCIE8tTbkE6Qj63c+G2gqHGpKwFnstHfOz+mZTuOw+aGwY5O9+IsPQWuJyL5ZM1D5kS+KPmICQg6QJImaRMVBrrKj6rShODBinD4JdGyvTypJXlQyZUSOBbQ6xyRUT6S+VTgRuQlkYdIT+QKOaQ3HnVyVkftju8c+K+LvcY/MdNAi/+EAemZht/OUkcplI+wlc1OyfdJT9OUMsPp0yL517DBuahh8fJOVvGHzuIL5wRaUvcoTi1i7WLrQ2F/9HGIxOn3D2T+VBlEpvyULETH0eAsH+ixR+cDek7 rajphoto@c3.my-control-panel.com
 
-      - name: Install Composer Dependencies
+      - name: Run PHP Artisan migrate
         run: |
-          cd ${{ github.workspace }}/portfolio
-          composer install --no-dev --optimize-autoloader
-
-      - name: Generate Laravel Mix
-        run: |
-          cd my-portfolio
-          npm install
-
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ftp.rajphotopasal.com
-          username: portfolio@birajshrestha.com.np
-          password: Biraj@224973
-
-      - name: Boot Laravel application
-        run: |
-          cd my-portfolio
-          php artisan key:generate
-          php artisan --version
-
-      - name: Execute PHPUnit tests
-        run: |
-          cd my-portfolio
-          php artisan migrate:fresh --seed
-          php artisan key:generate  # Ensure the application key is set after seeding
+          ssh biraj@hc3.my-control-panel.com/ "cd /home/my-sites/portfolio && php artisan migrate"
