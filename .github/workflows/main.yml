@@ -17,14 +17,14 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.0'
+          php-version: '8.2'
           extensions: mbstring, pdo, pdo_mysql
 
       - name: Copy .env.example
         run: cp .env.example .env
 
       - name: Install dependencies
-        run: composer install --no-progress --no-suggest
+        run: composer install --ignore-platform-reqs --no-progress --no-suggest
 
       - name: Database migration
         run: php artisan migrate --force
