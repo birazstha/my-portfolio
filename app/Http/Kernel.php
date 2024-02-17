@@ -2,9 +2,11 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CheckIfLoggedIn;
 use App\Http\Middleware\CheckRoleAndPermission;
 use App\Http\Middleware\CheckSystemAuth;
 use App\Http\Middleware\FrontendAuth;
+use App\Http\Middleware\LoginLogs;
 use Spatie\Permission\Middlewares\RoleMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Spatie\Permission\Middlewares\PermissionMiddleware;
@@ -61,6 +63,9 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'systemAuth' => CheckSystemAuth::class,
         'CheckRoleAndPermission' => CheckRoleAndPermission::class,
-        'frontendAuth' => FrontendAuth::class
+        'frontendAuth' => FrontendAuth::class,
+        'checkIfLoggedIn' => CheckIfLoggedIn::class,
+        'log.login' => LoginLogs::class,
+
     ];
 }
