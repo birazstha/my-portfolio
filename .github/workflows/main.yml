@@ -30,33 +30,31 @@ jobs:
         run: php artisan migrate
         env:
           DB_CONNECTION: mysql
-          DB_HOST: 198.251.84.200
-          DB_PORT: 3306
-          DB_DATABASE: biraj_db_test
-          DB_USERNAME: biraj_test_admin
-          DB_PASSWORD: "Biraj@224973"
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_DATABASE: ${{ secrets.DB_DATABASE }}
+          DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
       - name: Database seeding
         run: php artisan db:seed
         env:
           DB_CONNECTION: mysql
-          DB_HOST: 198.251.84.200
-          DB_PORT: 3306
-          DB_DATABASE: biraj_db_test
-          DB_USERNAME: biraj_test_admin
-          DB_PASSWORD: "Biraj@224973"
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_DATABASE: ${{ secrets.DB_DATABASE }}
+          DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
-      - name: Deploy
-        runs-on: ubuntu-latest
-        steps:
-          - name: 🚚 Get Latest Code
-            uses: actions/checkout@v3
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get Latest Code
+        uses: actions/checkout@v3
         
-          - name: Deploy via FTP
-            uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-            with:
-              server: ftp.rajphotopasal.com
-              username: portfolio@birajshrestha.com.np
-              password: Biraj@224973
-
- 
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ftp.rajphotopasal.com
+          username: practice@practice.rajphotopasal.com
+          password: Biraj@224973
