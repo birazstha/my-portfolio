@@ -26,7 +26,6 @@ jobs:
       - name: Install dependencies
         run: composer install --ignore-platform-reqs --no-progress --no-suggest
         
-        
       - name: Database migration
         run: php artisan migrate --force
         env:
