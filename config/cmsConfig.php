@@ -5,7 +5,7 @@ $postMethod = 'post';
 $putMethod = 'put';
 $deleteMethod = 'delete';
 
-$categoryBaseUrl = "/categories";
+$projectBaseUrl = "/projects";
 $userBaseUrl = "/users";
 $homeBaseUrl = "/home";
 $frontendUserBaseUrl = "/frontendUsers";
@@ -22,11 +22,12 @@ return [
         'route' => $homeBaseUrl,
     ],
 
+
     [
-        'name' => 'Category Management',
-        'icon' => "<i class='fa fa-list'></i>",
+        'name' => 'Project Management',
+        'icon' => '<i class="fas fa-server"></i>',
         'hasSubmodules' => false,
-        'route' => $categoryBaseUrl,
+        'route' => $projectBaseUrl,
     ],
 
     //User Management

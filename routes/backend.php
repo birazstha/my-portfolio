@@ -8,6 +8,7 @@ use App\Http\Controllers\System\Dashboard\DashboardController;
 use App\Http\Controllers\System\Module\ModuleController;
 use App\Http\Controllers\System\Auth\LoginController;
 use App\Http\Controllers\System\Permission\PermissionController;
+use App\Http\Controllers\System\Project\ProjectController;
 use App\Http\Controllers\System\Role\RoleController;
 use App\Http\Controllers\System\User\UserController;
 
@@ -41,5 +42,8 @@ Route::group(['prefix' => 'system/'], function () {
         Route::resource('/permissions', PermissionController::class);
         Route::post('/change-password', [UserController::class, 'changePassword'])->name('changePassword');
         Route::resource('/modules', ModuleController::class);
+
+        //Roles
+        Route::resource('/projects', ProjectController::class);
     });
 });
