@@ -3,27 +3,30 @@ name: Laravel Database Migration
 on:
   push:
     branches:
+      - main
       - master
 
 jobs:
-  migrate_database:
-    name: Migrate Database
+  migrate:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up PHP
+      - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.2'
+          php-version: '8.0'
+          extensions: mbstring, pdo, pdo_mysql
 
+      - name: Copy .env.example
+        run: cp .env.example .env
 
-      - name: Install Composer dependencies
-        run: composer install --no-interaction --prefer-dist --optimize-autoloader
-    
-      - name: Run Laravel migrations
+      - name: Install dependencies
+        run: composer install --no-progress --no-suggest
+
+      - name: Database migration
         run: php artisan migrate --force
         env:
           DB_CONNECTION: mysql
