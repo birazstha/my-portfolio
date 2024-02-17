@@ -3,7 +3,7 @@ name: Laravel Database Migration
 on:
   push:
     branches:
-      - master # Adjust this to your main branch name
+      - master
 
 jobs:
   migrate_database:
