@@ -27,7 +27,7 @@ jobs:
         run: composer install --ignore-platform-reqs --no-progress --no-suggest
         
       - name: Database migration
-        run: php artisan migrate --fresh
+        run: php artisan migrate:fresh --seed
         env:
           DB_CONNECTION: mysql
           DB_HOST: 198.251.84.200
