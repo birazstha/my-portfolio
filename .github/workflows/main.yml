@@ -3,7 +3,7 @@ name: Laravel Database Migration
 on:
   push:
     branches:
-      - main # Adjust this to your main branch name
+      - master # Adjust this to your main branch name
 
 jobs:
   migrate_database:
@@ -17,7 +17,7 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.4' # Specify your PHP version here
+          php-version: '8.2' # Specify your PHP version here
 
       - name: Install Composer dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
@@ -30,6 +30,6 @@ jobs:
           DB_CONNECTION: mysql
           DB_HOST: 198.251.84.200
           DB_PORT: 3306
-          DB_DATABASE: your_database_name
+          DB_DATABASE: biraj_db_test
           DB_USERNAME: biraj_test_admin
           DB_PASSWORD: Biraj@224973
