@@ -13,11 +13,13 @@ jobs:
 
       - name: 🚚 Get Latest Code
         uses: actions/checkout@v3
-     
+
+      - name: Install Composer dependencies
+        run: composer install --no-dev --prefer-dist --optimize-autoloader
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ftp.rajphotopasal.com
           username: portfolio@birajshrestha.com.np
           password: Biraj@224973
-
