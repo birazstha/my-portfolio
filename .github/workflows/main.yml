@@ -18,7 +18,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ftp.rajphotopasal.com
-          username: practice@practice.rajphotopasal.com
+          username: portfolio@birajshrestha.com.np
           password: Biraj@224973
 
       - name: Setup PHP
