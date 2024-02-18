@@ -43,7 +43,6 @@ jobs:
           DB_USERNAME: biraj_test_admin
           DB_PASSWORD: "Biraj@224973"
 
-        
       - name: Database seeding
         run: php artisan db:seed
         env:
