@@ -11,8 +11,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: 🚚 Get Latest Code
+        uses: actions/checkout@v3
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ftp.rajphotopasal.com
+          username: practice@practice.rajphotopasal.com
+          password: Biraj@224973
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -47,16 +54,7 @@ jobs:
           DB_USERNAME: biraj_test_admin
           DB_PASSWORD: "Biraj@224973"
 
-      - name: 🚚 Get Latest Code
-        uses: actions/checkout@v3
-
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ftp.rajphotopasal.com
-          username: practice@practice.rajphotopasal.com
-          password: Biraj@224973
-
+     
           
 
   
