@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use App\Models\Config;
+use App\Models\FrontendConfig;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use MilanTarami\NepaliCalendar\Facades\NepaliCalendar;
@@ -24,6 +25,13 @@ function getCmsConfig($label)
 
     return $value;
 }
+
+
+function frontendConfig($key)
+{
+    return FrontendConfig::where('key', $key)->value('value');
+}
+
 
 function makeCaps($name)
 {

@@ -11,6 +11,7 @@ $homeBaseUrl = "/home";
 $frontendUserBaseUrl = "/frontendUsers";
 $roleBaseUrl = "/roles";
 $configBaseUrl = "/configs";
+$frontendConfigBaseUrl = "/frontend-configs";
 $permissionsBaseUrl = "/permissions";
 $moduleBaseUrl = "/modules";
 return [
@@ -67,19 +68,22 @@ return [
     ],
 
     [
-        'name' => 'System Config',
+        'name' => 'Configs',
         'icon' => '<i class="fas fa-cog parent-icon parent-icon"></i>',
         'hasSubmodules' => true,
         'submodules' => [
             [
-                'name' => 'Configurations',
-                'icon' => '<i class="fas fa-wrench"></i>',
+                'name' => 'System Config',
+                'icon' => '<i class="fas fa-bars"></i>',
                 'hasSubmodules' => false,
                 'route' => $configBaseUrl,
-
             ],
-
-
+            [
+                'name' => 'Frontend Config',
+                'icon' => '<i class="far fa-images"></i>',
+                'hasSubmodules' => false,
+                'route' => $frontendConfigBaseUrl,
+            ],
         ],
     ],
 ];

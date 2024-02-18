@@ -2,6 +2,7 @@
 
 @section('content')
     <section class="content">
+    <section class="content">
         <div class="row">
             <div class="col-12">
                 <div class="card ml-3 mr-3">

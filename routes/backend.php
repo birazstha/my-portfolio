@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\System\Dashboard\DashboardController;
 use App\Http\Controllers\System\Module\ModuleController;
 use App\Http\Controllers\System\Auth\LoginController;
+use App\Http\Controllers\System\Config\FrontendConfigController;
 use App\Http\Controllers\System\Permission\PermissionController;
 use App\Http\Controllers\System\Project\ProjectController;
 use App\Http\Controllers\System\Role\RoleController;
@@ -45,5 +46,8 @@ Route::group(['prefix' => 'system/'], function () {
 
         //Roles
         Route::resource('/projects', ProjectController::class);
+
+        //Frontend Config
+        Route::resource('/frontend-configs', FrontendConfigController::class);
     });
 });
