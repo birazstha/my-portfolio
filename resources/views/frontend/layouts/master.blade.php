@@ -104,8 +104,8 @@
                         class="img-thumbnail mb-4">
                 </div>
                 <div class="pl-md-4 col-md-9">
-                    <h6 class="title">James Smith</h6>
-                    <p class="subtitle">UI/UX Designer</p>
+                    <h6 class="title">{{ frontendConfig('name') }}</h6>
+                    <p class="subtitle">{{ frontendConfig('position') }}</p>
                     <p>
                         {{ frontendConfig('about') }}
                     </p>
