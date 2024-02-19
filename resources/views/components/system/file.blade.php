@@ -39,7 +39,7 @@
                         width="300px" class="img-thumbnail" alt="...">
                 </div>
             @else
-                <embed src="{{ asset($input['path'] . '/' . $input['value']->files()->value('title')) }}" type="application/pdf" height="300px" />
+                <embed src="{{ isset($input['value']) ? asset($input['path'] . '/' . $input['value']->files()->value('title')) : '' }}" type="application/pdf" height="300px" />
             @endif
 
 
