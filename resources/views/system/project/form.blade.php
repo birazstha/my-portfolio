@@ -25,6 +25,15 @@
         'value' => $item->rank ?? old('rank'),
     ]" />
 
+    {{-- Image --}}
+    <x-system.file :input="[
+        'name' => 'image',
+        'required' => true,
+        'fileTypes' => 'image/jpeg, image/jpg,image/png',
+        'value' => $item ?? old('image'),
+        'path' => 'uploads/projects',
+    ]" />
+
     <x-system.radio :input="[
         'name' => 'status',
         'options' => $status,

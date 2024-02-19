@@ -4,16 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\LogOptions;
 
-class FrontendConfig extends Model
+class File extends Model
 {
     use HasFactory;
 
     public $timestamps = true;
     public $guarded = ['id'];
 
-    public function files()
+    public function fileable()
     {
-        return $this->morphMany(File::class, 'fileable');
+        return $this->morphTo();
     }
 }

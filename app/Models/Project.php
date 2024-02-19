@@ -11,4 +11,19 @@ class Project extends Model
     public $timestamps = true;
 
     public $guarded = ['id'];
+
+    public function files()
+    {
+        return $this->morphMany(File::class, 'fileable');
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', true);
+    }
+
+    public function scopeRank($query)
+    {
+        return $query->orderBy('rank', 'ASC');
+    }
 }

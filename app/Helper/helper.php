@@ -107,3 +107,14 @@ function statusBadge($item, $indexUrl)
 {
     return $item->status ? '<a class="badge badge-success" href="' . $indexUrl . '/change-status/' . $item->id  . '">' . 'Active' . '</a>' : '<a class="badge badge-danger" href="' . $indexUrl . '/change-status/' . $item->id  . '">' . 'Inactive' . '</a>';
 }
+
+function indexImagePreview($path, $item)
+{
+    return '<img src="' . asset($path . '/' . $item->files()->value('title')) . '" height="100px" alt="">';
+}
+
+
+function fileName($slug)
+{
+    return App\Models\FrontendConfig::where('key', $slug)->first();
+}

@@ -1,5 +1,6 @@
 @extends('system.layouts.config')
 
+
 @section('create')
 @endsection
 
@@ -38,31 +39,7 @@
             <div class="tab-pane fade" id="nav-file" role="tabpanel" aria-labelledby="nav-file-tab" tabindex="0">
                 <div class="card">
                     <div class="card-body">
-                        {{-- Resume --}}
-                        <x-system.file :input="[
-                            'name' => 'resume',
-                            'fileTypes' => 'application/pdf',
-                            'value' => $item ?? old('image'),
-                            'path' => 'uploads/testimonials',
-                        ]" />
-
-                        {{-- Hero Image --}}
-                        <x-system.file :input="[
-                            'name' => 'hero_image',
-                            'label' => 'Hero Image',
-                            'fileTypes' => 'image/jpeg, image/jpg,image/png',
-                            'value' => $item ?? old('hero_image'),
-                            'path' => 'uploads/testimonials',
-                        ]" />
-
-                        {{-- Small Image --}}
-                        <x-system.file :input="[
-                            'name' => 'small_image',
-                            'label' => 'Small Image',
-                            'fileTypes' => 'image/jpeg, image/jpg,image/png',
-                            'value' => $item ?? old('image'),
-                            'path' => 'uploads/testimonials',
-                        ]" />
+                        @include('system.frontend-config.files')
                     </div>
                 </div>
             </div>
