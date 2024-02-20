@@ -4,7 +4,6 @@ $getMethod = 'get';
 $postMethod = 'post';
 $putMethod = 'put';
 $deleteMethod = 'delete';
-
 $projectBaseUrl = "/projects";
 $userBaseUrl = "/users";
 $homeBaseUrl = "/home";
@@ -13,6 +12,7 @@ $roleBaseUrl = "/roles";
 $testimonialBaseUrl = "/testimonials";
 $configBaseUrl = "/configs";
 $frontendConfigBaseUrl = "/frontend-configs";
+$enquiryBaseUrl = "/enquiries";
 $permissionsBaseUrl = "/permissions";
 $moduleBaseUrl = "/modules";
 return [
@@ -34,46 +34,53 @@ return [
 
     [
         'name' => 'Testimonial Management',
-        'icon' => '<i class="far fa-comments"></i>',
+        'icon' => '<i class="fas fa-comment-dots"></i>',
         'hasSubmodules' => false,
         'route' => $testimonialBaseUrl,
     ],
 
-    //User Management
     [
-        'name' => 'User Management',
-        'icon' => "<i class='fa fa-user parent-icon'></i>",
-        'hasSubmodules' => true,
-        'submodules' => [
-            [
-                'name' => 'Users',
-                'icon' => '<i class="fas fa-user-cog parent-icon"></i>',
-                'hasSubmodules' => false,
-                'route' => $userBaseUrl,
-
-            ],
-
-            [
-                'name' => 'Roles',
-                'icon' => '<i class="fas fa-user-tie parent-icon"></i>',
-                'hasSubmodules' => false,
-                'route' => '/roles',
-
-            ],
-            [
-                'name' => 'Permissions',
-                'icon' => '<i class="fas fa-check parent-icon"></i>',
-                'hasSubmodules' => false,
-                'route' => $permissionsBaseUrl,
-            ],
-            [
-                'name' => 'Modules',
-                'icon' => '<i class="fas fa-list-ol parent-icon"></i>',
-                'hasSubmodules' => false,
-                'route' => $moduleBaseUrl,
-            ],
-        ],
+        'name' => 'Enquiry Management',
+        'icon' => '<i class="fas fa-question"></i>',
+        'hasSubmodules' => false,
+        'route' => $enquiryBaseUrl,
     ],
+
+    //User Management
+    // [
+    //     'name' => 'User Management',
+    //     'icon' => "<i class='fa fa-user parent-icon'></i>",
+    //     'hasSubmodules' => true,
+    //     'submodules' => [
+    //         [
+    //             'name' => 'Users',
+    //             'icon' => '<i class="fas fa-user-cog parent-icon"></i>',
+    //             'hasSubmodules' => false,
+    //             'route' => $userBaseUrl,
+
+    //         ],
+
+    //         [
+    //             'name' => 'Roles',
+    //             'icon' => '<i class="fas fa-user-tie parent-icon"></i>',
+    //             'hasSubmodules' => false,
+    //             'route' => '/roles',
+
+    //         ],
+    //         [
+    //             'name' => 'Permissions',
+    //             'icon' => '<i class="fas fa-check parent-icon"></i>',
+    //             'hasSubmodules' => false,
+    //             'route' => $permissionsBaseUrl,
+    //         ],
+    //         [
+    //             'name' => 'Modules',
+    //             'icon' => '<i class="fas fa-list-ol parent-icon"></i>',
+    //             'hasSubmodules' => false,
+    //             'route' => $moduleBaseUrl,
+    //         ],
+    //     ],
+    // ],
 
     [
         'name' => 'Configs',

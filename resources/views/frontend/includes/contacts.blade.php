@@ -8,18 +8,43 @@
         <div class="form">
             <h6 class="subtitle">Available 24/7</h6>
             <h6 class="section-title mb-4">Get In Touch</h6>
-            <form>
+            <form method="post" action="{{ route('frontend.enquiries.store') }}">
+                @csrf
+                {{-- Name --}}
                 <div class="form-group">
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Enter email" required>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="name"
+                        value="{{ old('name') }}" aria-describedby="emailHelp" placeholder="Name" required>
+                    @error('name')
+                        <span class="text text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
+
+                {{-- Email --}}
                 <div class="form-group">
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
-                        required>
+                    <input type="email" class="form-control" id="exampleInputEmail1" name="email"
+                        value="{{ old('email') }}" aria-describedby="emailHelp" placeholder="Email" required>
+                    @error('email')
+                        <span class="text text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
+
+                {{-- Contact --}}
                 <div class="form-group">
-                    <textarea name="contact-message" id="" cols="30" rows="5" class="form-control"
-                        placeholder="Message"></textarea>
+                    <input type="number" class="form-control" id="exampleInputEmail1" name="contact"
+                        value="{{ old('contact') }}" aria-describedby="emailHelp" placeholder="Contact" required>
+                    @error('contact')
+                        <span class="text text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                {{-- Message --}}
+                <div class="form-group">
+                    <textarea name="message" id="" cols="30" rows="5" class="form-control" placeholder="Message">
+                        {{ old('message') }}
+                    </textarea>
+                    @error('message')
+                        <span class="text text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 <button type="submit" class="btn btn-primary btn-block rounded w-lg">Send Message</button>
             </form>

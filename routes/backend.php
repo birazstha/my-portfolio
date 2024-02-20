@@ -11,6 +11,7 @@ use App\Http\Controllers\System\Project\ProjectController;
 use App\Http\Controllers\System\Category\CategoryController;
 use App\Http\Controllers\System\Dashboard\DashboardController;
 use App\Http\Controllers\System\Config\FrontendConfigController;
+use App\Http\Controllers\System\Enquiry\EnquiryController;
 use App\Http\Controllers\System\Permission\PermissionController;
 use App\Http\Controllers\System\Testimonial\TestimonialController;
 
@@ -53,5 +54,8 @@ Route::group(['prefix' => 'system/'], function () {
 
         //Testimonial
         Route::resource('/testimonials', TestimonialController::class);
+
+        //Enquiry
+        Route::resource('/enquiries', EnquiryController::class);
     });
 });

@@ -1,8 +1,7 @@
 <div class="container text-center">
     <h6 class="subtitle">Testmonial</h6>
     <h6 class="section-title mb-4">What People Say About Me</h6>
-    <p class="mb-5 pb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. In alias dignissimos. <br>
-        rerum commodi corrupti, temporibus non quam.</p>
+    <p class="mb-5 pb-4">{{ frontendConfig('testimonial_section') }}</p>
 
 
     <section id="testimonial">

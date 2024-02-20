@@ -53,6 +53,14 @@
      'value' => $item['portofolio_section'] ?? old('portofolio_section'),
  ]" />
 
+ {{-- Testimonial --}}
+ <x-system.textarea :input="[
+     'label' => 'Testionials',
+     'name' => 'testimonial_section',
+     'value' => $item['testimonial_section'] ?? old('testimonial_section'),
+ ]" />
+
+
 
  {{-- Contact --}}
  <x-system.input :input="[
