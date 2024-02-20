@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/vendors/themify-icons/css/themify-icons.css') }}">
     <!-- Bootstrap + Steller main styles -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/steller.css') }}">
+
+   
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">

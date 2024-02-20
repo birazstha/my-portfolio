@@ -12,39 +12,21 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="card testmonial-card border">
-                    <div class="card-body">
-                        <img src="{{ asset('frontend/assets/imgs/avatar-1.jpg') }}" alt="">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam nostrum voluptates
-                            in enim vel amet?</p>
-                        <h1 class="title">Emma Re</h1>
-                        <h1 class="subtitle">Graphic Designer</h1>
+
+            @foreach ($testimonials as $testimonial)
+                <div class="carousel-item active">
+                    <div class="card testmonial-card border">
+                        <div class="card-body">
+                            <img src="{{ asset('uploads/testimonials/' . $testimonial->files()->value('title')) }}"
+                                alt="">
+                            <p>{{ $testimonial->words }}</p>
+                            <h1 class="title">{{ $testimonial->name }}</h1>
+                            <h1 class="subtitle">{{ $testimonial->post }}</h1>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <div class="card testmonial-card border">
-                    <div class="card-body">
-                        <img src="{{ asset('frontend/assets/imgs/avatar-2.jpg') }}" alt="">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam nostrum voluptates
-                            in enim vel amet?</p>
-                        <h1 class="title">James Bert</h1>
-                        <h1 class="subtitle">Web Designer</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="card testmonial-card border">
-                    <div class="card-body">
-                        <img src="{{ asset('frontend/assets/imgs/avatar-3.jpg') }}" alt="">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam nostrum voluptates
-                            in enim vel amet?</p>
-                        <h1 class="title">Michael Abra</h1>
-                        <h1 class="subtitle">Web Developer</h1>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
 </div>

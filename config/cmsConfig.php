@@ -10,6 +10,7 @@ $userBaseUrl = "/users";
 $homeBaseUrl = "/home";
 $frontendUserBaseUrl = "/frontendUsers";
 $roleBaseUrl = "/roles";
+$testimonialBaseUrl = "/testimonials";
 $configBaseUrl = "/configs";
 $frontendConfigBaseUrl = "/frontend-configs";
 $permissionsBaseUrl = "/permissions";
@@ -29,6 +30,13 @@ return [
         'icon' => '<i class="fas fa-server"></i>',
         'hasSubmodules' => false,
         'route' => $projectBaseUrl,
+    ],
+
+    [
+        'name' => 'Testimonial Management',
+        'icon' => '<i class="far fa-comments"></i>',
+        'hasSubmodules' => false,
+        'route' => $testimonialBaseUrl,
     ],
 
     //User Management

@@ -32,6 +32,28 @@
      'value' => $item['about'] ?? old('about'),
  ]" />
 
+ {{-- Service --}}
+ <x-system.textarea :input="[
+     'label' => 'What I Do?',
+     'name' => 'service_section',
+     'value' => $item['service_section'] ?? old('service_section'),
+ ]" />
+
+ {{-- Skills --}}
+ <x-system.textarea :input="[
+     'label' => 'Why Choose me?',
+     'name' => 'skills_section',
+     'value' => $item['skills_section'] ?? old('skills_section'),
+ ]" />
+
+ {{-- Portfolio --}}
+ <x-system.textarea :input="[
+     'label' => 'Check My Works.',
+     'name' => 'portofolio_section',
+     'value' => $item['portofolio_section'] ?? old('portofolio_section'),
+ ]" />
+
+
  {{-- Contact --}}
  <x-system.input :input="[
      'name' => 'contact',

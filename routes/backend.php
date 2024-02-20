@@ -1,17 +1,18 @@
 <?php
 
 
-use App\Http\Controllers\System\Category\CategoryController;
-use App\Http\Controllers\System\Config\ConfigController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\System\Dashboard\DashboardController;
-use App\Http\Controllers\System\Module\ModuleController;
-use App\Http\Controllers\System\Auth\LoginController;
-use App\Http\Controllers\System\Config\FrontendConfigController;
-use App\Http\Controllers\System\Permission\PermissionController;
-use App\Http\Controllers\System\Project\ProjectController;
 use App\Http\Controllers\System\Role\RoleController;
 use App\Http\Controllers\System\User\UserController;
+use App\Http\Controllers\System\Auth\LoginController;
+use App\Http\Controllers\System\Config\ConfigController;
+use App\Http\Controllers\System\Module\ModuleController;
+use App\Http\Controllers\System\Project\ProjectController;
+use App\Http\Controllers\System\Category\CategoryController;
+use App\Http\Controllers\System\Dashboard\DashboardController;
+use App\Http\Controllers\System\Config\FrontendConfigController;
+use App\Http\Controllers\System\Permission\PermissionController;
+use App\Http\Controllers\System\Testimonial\TestimonialController;
 
 Route::group(['prefix' => 'system/'], function () {
 
@@ -49,5 +50,8 @@ Route::group(['prefix' => 'system/'], function () {
 
         //Frontend Config
         Route::resource('/frontend-configs', FrontendConfigController::class);
+
+        //Testimonial
+        Route::resource('/testimonials', TestimonialController::class);
     });
 });
