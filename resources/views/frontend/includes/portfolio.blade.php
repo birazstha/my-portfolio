@@ -7,8 +7,8 @@
         <div class="col-sm-12">
             <div class="row">
                 @foreach ($projects as $project)
-                    <div class="col-4 border border-success">
-                        <div class="img-wrapper border border-danger">
+                    <div class="col-4">
+                        <div class="img-wrapper">
                             <img src="{{ asset('uploads/projects/' . $project->files()->value('title')) }}"
                                 alt="">
                             <div class="overlay">

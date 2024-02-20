@@ -11,8 +11,14 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/vendors/themify-icons/css/themify-icons.css') }}">
     <!-- Bootstrap + Steller main styles -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/steller.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/testimonial.css') }}">
 
-   
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
+
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">

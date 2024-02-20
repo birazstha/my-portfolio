@@ -5,28 +5,37 @@
         rerum commodi corrupti, temporibus non quam.</p>
 
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
+    <section id="testimonial">
 
-            @foreach ($testimonials as $testimonial)
-                <div class="carousel-item active">
-                    <div class="card testmonial-card border">
-                        <div class="card-body">
-                            <img src="{{ asset('uploads/testimonials/' . $testimonial->files()->value('title')) }}"
-                                alt="">
-                            <p>{{ $testimonial->words }}</p>
-                            <h1 class="title">{{ $testimonial->name }}</h1>
-                            <h1 class="subtitle">{{ $testimonial->post }}</h1>
+        <div class="testimonial-container">
+            <div class="owl-carousel">
+
+
+                @foreach ($testimonials as $testimonial)
+                    <div class="testimonial-box">
+                        <div class="box-image">
+                            <div class="testimonial-image">
+                                <img src="{{ asset('uploads/testimonials/' . $testimonial->files()->value('title')) }}"
+                                    alt="Profile Image">
+                            </div>
+                        </div>
+                        <div class="client-detail">
+                            <span class="testimonial-author">{{ $testimonial->name }}</span>
+                            <span
+                                class="testimonial-author">{{ $testimonial->post . ', ' . $testimonial->company }}</span>
+
+                            <div class="testimonial-content">
+                                <p class="review">"{{ $testimonial->words }}"
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
 
+
+
+
+            </div>
         </div>
-    </div>
+    </section>
 </div>

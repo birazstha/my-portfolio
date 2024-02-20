@@ -1,0 +1,122 @@
+#testimonial {
+    opacity: 0.9;
+    margin-bottom: 10px;
+}
+
+
+.testimonial {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimonial-container {
+    margin-bottom: 37px;
+}
+
+
+
+
+.owl-carousel {
+    /* bordtestimonial-containerr: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+    /* max-width: 1920px; */
+
+}
+
+
+
+.testimonial-box {
+    /* display: flex; */
+    /* justify-content: space-around; */
+    flex-direction: column;
+    align-items: center;
+    background-color: #ff7a57;
+    color: white;
+    text-align: center;
+    max-width: 400px;
+    height: 300px;
+    padding: 20px;
+    /* border: 1px solid green; */
+    border-radius: 10px;
+
+}
+
+.testimonial-content {
+    /* border: 1px solid green; */
+    align-items: center;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.testimonial-box .review {
+    /* border: 1px solid red; */
+    font-style: italic;
+    overflow-wrap: break-word;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+/* .testimonial-word {
+      overflow: hidden;
+      white-space: nowrap;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      line-height: 1.5;
+      max-height: calc(4 * 1.5);
+      overflow: hidden;
+      text-overflow: ellipsis;
+  } */
+
+.testimonial-image {
+    /* border: 1px solid red; */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 15px;
+    border-radius: 100%;
+    overflow: hidden;
+
+}
+
+.testimonial-image img {
+    width: 100%;
+    /* Ensure the image covers the entire circle */
+    height: 100%;
+    /* Ensure the image covers the entire circle */
+    object-fit: cover;
+}
+
+.client-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimonial-author {
+    font-style: normal;
+    font-size: 18px;
+    font-weight: 500;
+    /* margin-top: 10px; */
+    /* border: 1px solid pink; */
+}
+
+
+.owl-nav {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+}
