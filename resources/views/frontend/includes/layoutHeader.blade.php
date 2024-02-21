@@ -7,6 +7,20 @@
     <meta name="description" content="Start your development with Steller landing page.">
     <meta name="author" content="Devcrud">
     <title>{{ frontendConfig('name') }} - Portfolio</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FLP7V9RRGW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FLP7V9RRGW');
+    </script>
+
     <!-- font icons -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/vendors/themify-icons/css/themify-icons.css') }}">
     <!-- Bootstrap + Steller main styles -->
