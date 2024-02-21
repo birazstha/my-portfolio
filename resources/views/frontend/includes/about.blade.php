@@ -10,8 +10,8 @@
             <p>
                 {{ frontendConfig('about') }}
             </p>
-            <a href="{{ asset('uploads/files/' . frontendConfig('resume')) }}" class="btn btn-primary rounded mt-3"
-                download>DOWNLOAD CV</a>
+            <a href="{{ asset('uploads/files/' . fileName('resume')->files()->value('title')) }}"
+                class="btn btn-primary rounded mt-3" download>DOWNLOAD CV</a>
         </div>
     </div>
 </div>
