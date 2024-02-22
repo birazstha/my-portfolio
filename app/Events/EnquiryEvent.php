@@ -4,14 +4,12 @@ namespace App\Events;
 
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class EnquiryEvent implements ShouldQueue
+class EnquiryEvent
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels, Queueable;
+    use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $data;
     public function __construct($data)

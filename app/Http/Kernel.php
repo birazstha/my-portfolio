@@ -7,10 +7,9 @@ use App\Http\Middleware\CheckRoleAndPermission;
 use App\Http\Middleware\CheckSystemAuth;
 use App\Http\Middleware\FrontendAuth;
 use App\Http\Middleware\LoginLogs;
-use Spatie\Permission\Middlewares\RoleMiddleware;
+use App\Http\Middleware\TrackVisitors;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-use Spatie\Permission\Middlewares\PermissionMiddleware;
-use Spatie\Permission\Middlewares\RoleOrPermissionMiddleware;
+
 
 class Kernel extends HttpKernel
 {
@@ -66,6 +65,7 @@ class Kernel extends HttpKernel
         'frontendAuth' => FrontendAuth::class,
         'checkIfLoggedIn' => CheckIfLoggedIn::class,
         'log.login' => LoginLogs::class,
+        'uniqueVisitors' => TrackVisitors::class
 
     ];
 }

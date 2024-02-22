@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::group(['as' => 'frontend.'], function () {
+Route::group(['as' => 'frontend.', 'middleware' => 'uniqueVisitors'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
 
     //Enquiry

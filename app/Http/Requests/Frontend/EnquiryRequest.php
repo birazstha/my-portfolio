@@ -19,7 +19,7 @@ class EnquiryRequest extends FormRequest
             'name' => 'required',
             'email' => 'required|email',
             'message' => 'required',
-            'contact' => 'required|digits:10|integer',
+            // 'contact' => 'required|digits:10|integer',
         ];
     }
 
