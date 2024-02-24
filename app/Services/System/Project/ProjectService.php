@@ -16,6 +16,16 @@ class ProjectService extends Service
         parent::__construct($model);
     }
 
+    public function getAllData($request)
+    {
+        $query = $this->query()->rank();
+        if (isset($request->keyword)) {
+            $query->where('title', 'ILIKE',  '%' . $request->keyword . '%');
+        }
+        return $query->orderBy('updated_at', 'DESC')->get();
+    }
+
+
     public function store($request)
     {
         DB::transaction(function () use ($request) {

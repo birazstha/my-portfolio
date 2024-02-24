@@ -16,8 +16,9 @@
 @section('headings')
     <th>S.N</th>
     <th>Title</th>
-    <th>Status</th>
+    <th>Rank</th>
     <th>Image</th>
+    <th>Status</th>
     <th>Action</th>
 @endsection
 
@@ -26,6 +27,7 @@
         <tr>
             <td>{{ $key + 1 }}</td>
             <td>{{ $item->title }}
+            <td>{{ $item->rank }}
             <td>{!! indexImagePreview('uploads/projects', $item) !!}</td>
             <td>{!! statusBadge($item, $indexUrl) !!}</td>
             <td>
