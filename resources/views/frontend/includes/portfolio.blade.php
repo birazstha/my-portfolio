@@ -1,28 +1,49 @@
-<div class="container text-center">
-    <h6 class="subtitle">Portfolio</h6>
-    <h6 class="section-title mb-4">Check My Wonderful Works</h6>
-    <p class="mb-5 pb-4">{{ frontendConfig('portofolio_section') }}</p>
+ <div class="container text-center">
 
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="row">
-                @foreach ($projects as $project)
-                    <div class="col-4">
-                        <div class="img-wrapper">
-                            <img src="{{ asset('uploads/projects/' . $project->files()->value('title')) }}"
-                                alt="">
-                            <div class="overlay">
-                                <div class="overlay-infos">
-                                    <h5>{{ $project->title }}</h5>
-                                    <a href="javascript:void(0)"><i class="ti-zoom-in"></i></a>
-                                    <a href="{{ $project->link }}" target="_blank"><i class="ti-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+     <div class="heading-wrapper">
+         <div class="portfolio__title">
+             <p>Portfolio</p>
+             <div class="animate-bar"></div>
+         </div>
+
+     </div>
+
+
+     <div class="gallery-wrapper">
+         {{-- <div class="gallery-nav">
+            <div class="gallery-filter">
+                <span class="filter-item active" data-filter="all">All</span>
+                @foreach ($projectTypes as $projectType)
+                    <span class="filter-item" data-filter="{{ $projectType->slug }}">{{ $projectType->title }}</span>
                 @endforeach
             </div>
-        </div>
-    </div>
+        </div> --}}
+         <div class="content-wrapper">
+             @forelse ($projects as $project)
+                 <div class="gallery-item" data-aos="fade-right" data-aos-duration="1200">
+                     <div class="gallery-item-inner">
+                         <div class="gallery-item-innerimage">
+                             <img src="{{ asset('uploads/projects/' . $project->files()->value('title')) }}"
+                                 alt="mobile">
+                         </div>
+                         <div class="content">
+                             <div class="path"></div>
+                             <h3>{{ $project->title ?? '' }}</h3>
+                             <p>{{ $project->description ?? '' }}</p>
+                         </div>
 
-</div>
+                     </div>
+                 </div>
+             @empty
+                 No data found
+             @endforelse
+
+
+
+         </div>
+
+
+     </div>
+
+
+ </div>
