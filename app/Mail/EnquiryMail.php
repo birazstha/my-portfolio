@@ -25,7 +25,7 @@ class EnquiryMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'An Enquiry received from' . $this->name,
+            subject: 'An Enquiry received from ' . $this->name,
             from: new Address($this->email,  $this->name),
         );
     }

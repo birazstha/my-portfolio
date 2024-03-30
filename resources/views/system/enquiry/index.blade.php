@@ -30,7 +30,7 @@
             <td>{{ $item->email ?? 'N/A' }}</td>
             <td>
                 @include('system.partials.deleteButton')
-                {{-- @include('system.partials.showButton') --}}
+                @include('system.partials.showButton')
             </td>
         </tr>
     @endforeach
