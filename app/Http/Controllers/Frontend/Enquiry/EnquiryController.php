@@ -19,7 +19,7 @@ class EnquiryController extends Controller
 
     public function store(EnquiryRequest $request)
     {
-        // dd($request->all());
+        dd($request->all());
         $data = $request->except('_token');
         $enquiry = $this->service->storeData($data);
         event(new EnquiryEvent($enquiry));

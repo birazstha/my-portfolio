@@ -12,7 +12,7 @@
                 @csrf
                 {{-- Name --}}
                 <div class="form-group">
-                    <input type="text" class="form-control" id="exampleInputEmail1" name="name"
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="fname"
                         value="{{ old('name') }}" aria-describedby="emailHelp" placeholder="Name" required>
                     @error('name')
                         <span class="text text-danger">{{ $message }}</span>

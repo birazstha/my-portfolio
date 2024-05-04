@@ -14,13 +14,7 @@ class EnquiryRequest extends FormRequest
 
     public function rules()
     {
-        // dd(request()->all());
-        return [
-            'name' => 'required',
-            'email' => 'required|email',
-            'message' => 'required',
-            // 'contact' => 'required|digits:10|integer',
-        ];
+        return [];
     }
 
     public function messages()
