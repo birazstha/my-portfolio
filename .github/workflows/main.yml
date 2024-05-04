@@ -1,6 +1,7 @@
 name: Laravel Database Migration
 
 
+
 on:
   push:
     branches:
