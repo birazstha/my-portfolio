@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ftp.rajphotopasal.com
           username: portfolio@birajshrestha.com.np
