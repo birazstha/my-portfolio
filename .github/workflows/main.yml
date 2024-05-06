@@ -21,9 +21,8 @@ jobs:
         with:
           server: ftp.rajphotopasal.com
           username: portfolio@birajshrestha.com.np
-          password: L9)t)DD68(.L
-        env:
-          DEBUG: "true"
+          password: Biraj@224973
+  
 
 
       - name: Setup PHP
