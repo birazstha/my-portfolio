@@ -1,8 +1,11 @@
 <div class="container text-center">
     <h6 class="subtitle">Contact</h6>
     <h6 class="section-title mb-4">Get In Touch With Me</h6>
-    <p class="mb-5 pb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. In alias dignissimos. <br>
-        rerum commodi corrupti, temporibus non quam.</p>
+    <p class="mb-5 pb-4">
+        I’m always open to discussing new projects, creative ideas, or opportunities to be a part of your vision.
+        Let’s connect and explore how we can work together to bring your ideas to life.
+    </p>
+
 
     <div class="contact text-left">
         <div class="form">
