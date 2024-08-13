@@ -6,8 +6,8 @@
             <p>{{ frontendConfig('position') }}</p>
 
             <div class="buttons pt-3">
-                {{-- <button class="btn btn-primary rounded">HIRE ME</button> --}}
-                <a href="{{ asset('uploads/files/' . fileName('resume')->files()->value('title')) }}"
+
+                <a href="{{ !is_null(fileName('resume')) ? asset('uploads/files/' . fileName('resume')->files()->value('title')) : '' }}"
                     class="btn btn-dark rounded" download>DOWNLOAD CV</a>
             </div>
 
@@ -16,7 +16,8 @@
             </div>
         </div>
         <div class="img-holder">
-            <img src="{{ asset('uploads/files/' . fileName('hero_image')->files()->value('title')) }}" alt="">
+            <img src="{{ !is_null(fileName('hero_image')) ? asset('uploads/files/' . fileName('hero_image')->files()->value('title')) : '' }}"
+                alt="">
         </div>
     </div>
 

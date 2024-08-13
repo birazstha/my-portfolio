@@ -12,7 +12,7 @@
                 @csrf
                 {{-- Name --}}
                 <div class="form-group">
-                    <input type="text" class="form-control" id="exampleInputEmail1" name="fname"
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="name"
                         value="{{ old('name') }}" aria-describedby="emailHelp" placeholder="Name" required>
                     @error('name')
                         <span class="text text-danger">{{ $message }}</span>
@@ -68,7 +68,7 @@
                 <i class="ti-email"></i>
                 <div class="mb-0">
                     <h5>Email Address</h5>
-                    <p>{{ frontendConfig('location') }}</p>
+                    <p>{{ frontendConfig('email') }}</p>
                 </div>
             </div>
         </div>
