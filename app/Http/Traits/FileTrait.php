@@ -43,6 +43,8 @@ trait FileTrait
         }
     }
 
+
+    
     public function updateOrCreateImage($image, $path, $model)
     {
         if ($model->files()->exists()) {
