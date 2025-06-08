@@ -16,7 +16,7 @@
             <div class="custom-card card border">
                 <div class="card-body">
                     <i class="icon ti-desktop"></i>
-                    <h5>Web Design</h5>
+                    <h5>Web Development</h5>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
             <div class="custom-card card border">
                 <div class="card-body">
                     <i class="icon ti-mobile"></i>
-                    <h5>App Design</h5>
+                    <h5>Custom Software Solutions</h5>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
             <div class="custom-card card border">
                 <div class="card-body">
                     <i class="icon ti-bar-chart"></i>
-                    <h5>SEO</h5>
+                    <h5>Technical Consulting & Support</h5>
                 </div>
             </div>
         </div>
